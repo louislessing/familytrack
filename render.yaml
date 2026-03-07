@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: familytrack-api
+    env: node
+    region: oregon
+    plan: starter
+    buildCommand: npm install && npm run db:push
+    startCommand: npm run api:start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: familytrack-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 3000
+
+databases:
+  - name: familytrack-db
+    databaseName: familytrack
+    user: familytrack
+    plan: starter
