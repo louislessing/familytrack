@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "npm run api:start"
+  }
+}{
   "name": "familytrack",
   "version": "1.0.0",
   "description": "A comprehensive family management platform for co-parenting, guardianship, and foster care coordination",
